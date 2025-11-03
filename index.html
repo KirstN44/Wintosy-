@@ -1,173 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Affirmation Space</title>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Wintosy – Your Quiet Corner</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Quicksand', sans-serif;
-      background-color: #f2e9e4;
+      font-family: 'Georgia', serif;
+      background-color: #e8c2aa;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      position: relative;
-    }
-
-    .sidebar-left,
-    .sidebar-right {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 60px;
-      background-color: #e8dcd3;
-      z-index: 0;
-    }
-
-    .sidebar-left {
-      left: 0;
-    }
-
-    .sidebar-right {
-      right: 0;
-    }
-
-    .site-name {
-      font-size: 2.4em;
-      font-weight: 600;
-      color: #7a4f3c;
-      margin-top: 2em;
-      margin-bottom: 1em;
-      opacity: 0.85;
-      z-index: 1;
-    }
-
-    .theme-block {
-      background-color: #fff;
+      justify-content: center;
       padding: 2em;
+    }
+
+    .container {
+      background-color: #fffaf4;
+      border: 1px solid #e6d9c7;
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2em;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       max-width: 600px;
-      width: 90%;
-      text-align: center;
-      margin-bottom: 2em;
-      z-index: 1;
+      width: 100%;
     }
 
     h1 {
-      font-size: 2.2em;
-      margin-bottom: 0.3em;
-      color: #5a3e36;
+      font-size: 2em;
+      margin-bottom: 0.2em;
+      color: #6b4c3b;
+      text-align: center;
     }
 
-    .intro {
-      font-size: 1.1em;
-      color: #6a5d58;
+    p {
+      font-size: 1em;
       margin-bottom: 2em;
+      text-align: center;
+      color: #7a5c47;
+    }
+
+    .affirmation-block {
+      background-color: #fff;
+      border: 1px solid #e6d9c7;
+      border-radius: 12px;
+      padding: 1.5em;
+      margin-bottom: 1.5em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
     }
 
     h2 {
-      font-size: 1.5em;
-      margin-bottom: 1em;
-      color: #7a4f3c;
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+      color: #5c4433;
     }
 
     button {
-      background-color: #ffd6c0;
+      background-color: #f4c9a8;
+      color: #3e3e3e;
       border: none;
-      padding: 0.8em 1.4em;
+      border-radius: 6px;
+      padding: 0.6em 1.2em;
       font-size: 1em;
-      border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #ffbfa0;
+      background-color: #eabf9f;
     }
 
     .affirmation-text {
-      margin-top: 1.5em;
-      font-size: 1.2em;
+      margin-top: 1em;
       font-style: italic;
-      color: #555;
-      min-height: 2em;
+      color: #5a4a3b;
     }
 
-    footer {
+    .footer-note {
+      font-size: 0.8em;
+      color: #7a5c47;
+      margin-top: 3em;
       text-align: center;
-      font-size: 0.9em;
-      color: #7a6f68;
-      margin: 3em 0 2em;
-      z-index: 1;
     }
 
-    footer a {
-      color: #7a4f3c;
-      text-decoration: none;
-    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1em;
+      }
 
-    footer a:hover {
-      text-decoration: underline;
+      .container {
+        padding: 1.5em;
+        border-radius: 12px;
+      }
+
+      h1 {
+        font-size: 1.6em;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 0.5em 1em;
+      }
+
+      .affirmation-block {
+        padding: 1.2em;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="sidebar-left"></div>
-  <div class="sidebar-right"></div>
+  <div class="container">
+    <h1>Wintosy</h1>
+    <p>Your Quiet Corner<br>A gentle space to pause, breathe, and remember your worth.<br>Click below when you're ready for a kind word.</p>
 
-  <div class="site-name"><b><i>Wintosy</b></i></div>
+    <div class="affirmation-block">
+      <h2>Self-Worth</h2>
+      <button onclick="revealAffirmation('selfWorth')">Reveal an Affirmation</button>
+      <div id="selfWorth" class="affirmation-text"></div>
+    </div>
 
-  <div class="theme-block">
-    <h1>Your Quiet Corner</h1>
-    <p class="intro">
-      A gentle space to pause, breathe, and remember your worth.<br>
-      Click below when you're ready for a kind word.
-    </p>
+    <div class="affirmation-block">
+      <h2>Calm & Clarity</h2>
+      <button onclick="revealAffirmation('calmClarity')">Reveal an Affirmation</button>
+      <div id="calmClarity" class="affirmation-text"></div>
+    </div>
+
+    <div class="affirmation-block">
+      <h2>Confidence</h2>
+      <button onclick="revealAffirmation('confidence')">Reveal an Affirmation</button>
+      <div id="confidence" class="affirmation-text"></div>
+    </div>
+
+    <div class="affirmation-block">
+      <h2>Healing</h2>
+      <button onclick="revealAffirmation('healing')">Reveal an Affirmation</button>
+      <div id="healing" class="affirmation-text"></div>
+    </div>
+
+    <div class="affirmation-block">
+      <h2>Boundaries</h2>
+      <button onclick="revealAffirmation('boundaries')">Reveal an Affirmation</button>
+      <div id="boundaries" class="affirmation-text"></div>
+    </div>
+
+    <div class="footer-note">
+      Please Note: For creative updates and site news, visit blog. This space is updated with care. If the site ever goes offline, updates will still be shared there. Thank you for pausing here — your presence matters.
+    </div>
   </div>
+<script>
+  const selfWorthAffirmations = [
+    "I am enough, even in quiet moments.",
+    "My worth is not measured by my productivity.",
+    "I belong in this world, just as I am.",
+    "I am allowed to take up space.",
+    "My voice matters, even when it trembles.",
+    "I am not behind — I am becoming.",
+    "I carry value that cannot be seen or measured.",
+    "I am worthy of kindness, especially from myself.",
+    "I do not need to earn rest or love.",
+    "My presence is a quiet kind of power.",
+    "I am more than what I do — I am who I am.",
+    "I am allowed to grow slowly and still be radiant.",
+    "I am not a problem to be fixed.",
+    "I am whole, even in my healing.",
+    "I am not too much. I am not too little.",
+    "I am allowed to exist without explanation.",
+    "I am not defined by others’ expectations.",
+    "I am worthy of joy, even on hard days.",
+    "I am allowed to change and still be loved.",
+    "I am a soft place that deserves gentleness."
+  ];
 
-  <div class="theme-block">
-    <h2>Self-Worth</h2>
-    <button onclick="showAffirmation('selfWorth')">Reveal an Affirmation</button>
-    <p id="selfWorth" class="affirmation-text"></p>
-  </div>
+  const calmClarityAffirmations = [
+    "I breathe into stillness and find peace.",
+    "My thoughts can soften like morning light.",
+    "Clarity comes when I trust the pause.",
+    "I am allowed to rest without guilt.",
+    "I release what I cannot control.",
+    "Peace is not perfection — it is presence.",
+    "I am safe to slow down.",
+    "My breath anchors me to this moment.",
+    "I can choose calm even in uncertainty.",
+    "Stillness is a strength, not a weakness.",
+    "I am not my racing thoughts.",
+    "I am allowed to step back and reflect.",
+    "Quiet moments are sacred and healing.",
+    "I trust myself to find clarity in time.",
+    "I do not need to rush to be worthy.",
+    "I am allowed to feel foggy and still be whole.",
+    "I can return to myself gently.",
+    "I am not lost — I am listening.",
+    "I honor the space between knowing and becoming.",
+    "I am allowed to exhale and begin again."
+  ];
 
-  <div class="theme-block">
-    <h2>Calm & Clarity</h2>
-    <button onclick="showAffirmation('calmClarity')">Reveal an Affirmation</button>
-    <p id="calmClarity" class="affirmation-text"></p>
-  </div>
+  const confidenceAffirmations = [
+    "I trust myself to take the next step.",
+    "My courage doesn’t need to be loud.",
+    "I am capable, even when I feel unsure.",
+    "I can begin before I feel ready.",
+    "I am allowed to learn as I go.",
+    "My confidence grows with each small act of bravery.",
+    "I am not defined by past hesitation.",
+    "I can speak up, even if my voice shakes.",
+    "I am worthy of being seen and heard.",
+    "I am allowed to take risks and still be safe.",
+    "I am not perfect — I am powerful.",
+    "I carry strength in my softness.",
+    "I am allowed to shine without shrinking.",
+    "I am not an imposter — I am becoming.",
+    "I am allowed to take up space with grace.",
+    "I trust my instincts and honor my pace.",
+    "I am building confidence one breath at a time.",
+    "I am not behind — I am on my path.",
+    "I am allowed to be proud of myself.",
+    "I am enough, even when I stumble."
+  ];
 
-  <div class="theme-block">
-    <h2>Confidence</h2>
-    <button onclick="showAffirmation('confidence')">Reveal an Affirmation</button>
-    <p id="confidence" class="affirmation-text"></p>
-  </div>
+  const healingAffirmations = [
+    "I am allowed to heal at my own pace.",
+    "My pain is valid, and so is my growth.",
+    "I am not broken — I am rebuilding.",
+    "Healing is not linear, and that’s okay.",
+    "I honor the parts of me that are still tender.",
+    "I am allowed to grieve and still move forward.",
+    "I am worthy of peace, even after chaos.",
+    "I carry strength in my scars.",
+    "I am allowed to rest without explanation.",
+    "I am healing, even when it doesn’t feel like it.",
+    "I am not alone in my journey.",
+    "I am allowed to feel joy again.",
+    "I am more than what hurt me.",
+    "I am allowed to release what no longer serves me.",
+    "I am soft, and that softness is sacred.",
+    "I am allowed to ask for help.",
+    "I am worthy of love, even in my healing.",
+    "I am allowed to begin again.",
+    "I am not my trauma — I am my resilience.",
+    "I am healing, and that is enough."
+  ];
 
-  <div class="theme-block">
-    <h2>Healing</h2>
-    <button onclick="showAffirmation('healing')">Reveal an Affirmation</button>
-    <p id="healing" class="affirmation-text"></p>
-  </div>
+  const boundariesAffirmations = [
+    "I am allowed to say no without guilt.",
+    "My boundaries are a form of self-respect.",
+    "I do not need to explain my limits.",
+    "I am allowed to protect my peace.",
+    "I can choose what I allow into my life.",
+    "My energy is sacred and worth guarding.",
+    "I am not responsible for others’ emotions.",
+    "I am allowed to walk away from what harms me.",
+    "I can be kind and firm at the same time.",
+    "I am allowed to change my mind.",
+    "I am not selfish for setting limits.",
+    "I am allowed to take breaks from connection.",
+    "I am worthy of relationships that honor my boundaries.",
+    "I am allowed to say yes only when it feels right.",
+    "I am not obligated to please everyone.",
+    "I am allowed to prioritize my well-being.",
+    "I am allowed to be clear and direct.",
+    "I am not rude — I am rooted.",
+    "I am allowed to choose myself.",
+    "My boundaries are a gift to my future self."
+  ];
 
-  <div class="theme-block">
-    <h2>Boundaries</h2>
-    <button onclick="showAffirmation('boundaries')">Reveal an Affirmation</button>
-    <p id="boundaries" class="affirmation-text"></p>
-  </div>
-
-  <footer>
-    Please follow for creative updates and site news, visit  
-    <a href="https://www.facebook.com/wintosyway" target="_blank">Wintosy Way</a>.
-	This space is updated with care. If the site ever goes offline, updates will still be shared there.<br><br>
-  Thank you for pausing here — your presence matters.
-  </footer>
-
-  <script>
+  function revealAffirmation(id) {
     const affirmations = {
-      selfWorth
+      selfWorth: selfWorthAffirmations,
+      calmClarity: calmClarityAffirmations,
+      confidence: confidenceAffirmations,
+      healing: healingAffirmations,
+      boundaries: boundariesAffirmations
+    };
+    const random = Math.floor(Math.random() * affirmations[id].length);
+    document.getElementById(id).innerText = affirmations[id][random];
+  }
+</script>
+</body>
+</html>
